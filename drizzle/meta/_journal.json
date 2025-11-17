@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1762825405681,
+      "tag": "0000_living_karen_page",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1762825479225,
+      "tag": "0001_black_texas_twister",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1762827016741,
+      "tag": "0002_sticky_mauler",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1762827090268,
+      "tag": "0003_thankful_kitty_pryde",
+      "breakpoints": true
+    }
+  ]
+}
