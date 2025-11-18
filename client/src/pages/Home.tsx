@@ -1,7 +1,7 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { APP_LOGO, APP_TITLE, COMPANY_INFO, getLoginUrl } from "@/const";
+import { APP_LOGO, APP_TITLE, COMPANY_INFO } from "@/const";
 import { trpc } from "@/lib/trpc";
 import { Camera, Heart, Image, Mail, MapPin, Phone, Star } from "lucide-react";
 import { Link } from "wouter";
