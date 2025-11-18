@@ -5,6 +5,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import ClientArea from "./pages/ClientArea";
 import PhotoshootGallery from "./pages/PhotoshootGallery";
 import Cart from "./pages/Cart";
@@ -20,6 +21,7 @@ function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path="/login" component={Login} />
       <Route path="/vincular" component={LinkAccount} />
       <Route path="/cliente" component={ClientArea} />
       <Route path="/cliente/ensaio/:id" component={PhotoshootGallery} />

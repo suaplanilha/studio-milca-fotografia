@@ -38,7 +38,7 @@ export default function Home() {
                 </Link>
               ) : (
                 <Button size="sm" asChild>
-                  <a href={getLoginUrl()}>Área do Cliente</a>
+                  <Link href="/login">Área do Cliente</Link>
                 </Button>
               )}
             </nav>
@@ -214,7 +214,7 @@ export default function Home() {
 
             <div className="mt-8 text-center">
               <Button size="lg" asChild>
-                <a href={getLoginUrl()}>Acessar Área do Cliente</a>
+                <Link href="/login">Acessar Área do Cliente</Link>
               </Button>
             </div>
           </div>
