@@ -1,3 +1,46 @@
+-- Create enums first
+DO $$ BEGIN
+ CREATE TYPE "role" AS ENUM('user', 'admin', 'client');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ CREATE TYPE "photoshoot_status" AS ENUM('pending', 'available', 'archived');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ CREATE TYPE "payment_method" AS ENUM('pix', 'credit', 'debit');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ CREATE TYPE "delivery_method" AS ENUM('pickup', 'delivery');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ CREATE TYPE "order_status" AS ENUM('awaiting_payment', 'payment_approved', 'in_editing', 'editing_done', 'in_printing', 'printing_done', 'ready_for_pickup', 'out_for_delivery', 'delivered', 'cancelled');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ CREATE TYPE "format" AS ENUM('digital', 'digital_printed');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ CREATE TYPE "print_size" AS ENUM('10x15', '15x21', '20x25', '20x30');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
 CREATE TABLE "accessLogs" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"clientId" integer NOT NULL,
