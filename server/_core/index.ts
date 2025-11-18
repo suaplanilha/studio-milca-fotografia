@@ -7,6 +7,28 @@ import { registerOAuthRoutes } from "./oauth";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
+import { migrate } from "drizzle-orm/postgres-js/migrator";
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
+
+async function runMigrations() {
+  if (!process.env.DATABASE_URL) {
+    console.warn("[Migrations] DATABASE_URL not found, skipping migrations");
+    return;
+  }
+  
+  try {
+    console.log("[Migrations] Running database migrations...");
+    const migrationClient = postgres(process.env.DATABASE_URL, { max: 1 });
+    const db = drizzle(migrationClient);
+    await migrate(db, { migrationsFolder: "./drizzle" });
+    await migrationClient.end();
+    console.log("[Migrations] ✅ Migrations completed successfully!");
+  } catch (error) {
+    console.error("[Migrations] ⚠️ Migration failed:", error);
+    // Não bloqueia o servidor se migrations falharem
+  }
+}
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -28,6 +50,9 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 }
 
 async function startServer() {
+  // Run migrations before starting server
+  await runMigrations();
+  
   const app = express();
   const server = createServer(app);
   // Configure body parser with larger size limit for file uploads
