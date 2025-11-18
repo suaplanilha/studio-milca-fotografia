@@ -1,37 +1,9 @@
 {
   "version": "7",
-  "dialect": "mysql",
+  "dialect": "postgresql",
   "entries": [
     {
       "idx": 0,
-      "version": "5",
-      "when": 1762825405681,
-      "tag": "0000_living_karen_page",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1762825479225,
-      "tag": "0001_black_texas_twister",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1762827016741,
-      "tag": "0002_sticky_mauler",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1762827090268,
-      "tag": "0003_thankful_kitty_pryde",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
       "version": "7",
       "when": 1763425153551,
       "tag": "0004_perfect_killer_shrike",
